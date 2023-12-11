@@ -8,8 +8,12 @@
     import gymnasium as gym
     import numpy as np
     import time
-    from Ipython.display import clear_output
 
+> Seed 설정
+
+    seed_value = 42
+    np.random.seed(seed_value)
+    random.seed(seed_value)
 
 > Gym 환경설정 & Q테이블 초기화
 
@@ -49,7 +53,7 @@
 
 > 1) Epsilon-Greedy Action 기반 Q-Learning 실시
 
-    num_episodes = 40000
+    num_episodes = 10000
     rewards_all_episodes = []
 
 for episode in range(num_episodes):
@@ -70,27 +74,28 @@ for episode in range(num_episodes):
     rewards_all_episodes.append(total_reward)
     successes.append(total_reward == 20)
 
-> 2000개 단위 에피소드별로 평균 보상 계산
+> 단위 에피소드별로 평균 보상 계산
 
     rewards_per_episodes = []
-    episode_rewards = []
+    episode_rewards = [][Uploading Boltzmann_Fin.py…]()
+
     count = 0
 
 for reward in rewards_all_episodes:
     count += 1
     episode_rewards.append(reward)
     
-    if count % 2000 == 0:
-        avg_reward = sum(episode_rewards) / 2000
+    if count % 1000 == 0:
+        avg_reward = sum(episode_rewards) / 1000
         rewards_per_episodes.append(avg_reward)
         episode_rewards = []
 
 
-> 2000개 단위 에피소드별 평균 보상 출력
+> 단위 에피소드별 평균 보상 출력
 
-    print("********2000 Episodes Average Reward********\n")
+    print("********Episodes Average Reward********\n")
     for idx, reward in enumerate(rewards_per_episodes):
-    print((idx + 1) * 2000, ": ", reward)
+    print((idx + 1) * 1000, ": ", reward)
 
 > 업데이트된 Q-table 출력
 
@@ -131,7 +136,7 @@ for reward in rewards_all_episodes:
 
 > 2) Boltzmann Action 기반 Q-Learning 실시
 
-    num_episodes = 40000
+    num_episodes = 10000
     rewards_all_episodes = []
 
 for episode in range(num_episodes):
@@ -152,7 +157,7 @@ for episode in range(num_episodes):
     rewards_all_episodes.append(total_reward)
     successes.append(total_reward == 20)
 
-> 2000개 단위 에피소드별로 평균 보상 계산
+> 단위 에피소드별로 평균 보상 계산
     rewards_per_episodes = []
     episode_rewards = []
     count = 0
@@ -161,16 +166,16 @@ for reward in rewards_all_episodes:
     count += 1
     episode_rewards.append(reward)
     
-    if count % 2000 == 0:
-        avg_reward = sum(episode_rewards) / 2000
+    if count % 1000 == 0:
+        avg_reward = sum(episode_rewards) / 1000
         rewards_per_episodes.append(avg_reward)
         episode_rewards = []
 
-> 2000개 단위 에피소드별 평균 보상 출력
+> 단위 에피소드별 평균 보상 출력
 
-    print("********2000 Episodes Average Reward********\n")
+    print("********Episodes Average Reward********\n")
     for idx, reward in enumerate(rewards_per_episodes):
-    print((idx + 1) * 2000, ": ", reward)
+    print((idx + 1) * 1000, ": ", reward)
 
 > 업데이트된 Q-table 출력
 
