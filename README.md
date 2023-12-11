@@ -77,7 +77,7 @@ for episode in range(num_episodes):
 > 단위 에피소드별로 평균 보상 계산
 
     rewards_per_episodes = []
-    episode_rewards = [][Uploading Boltzmann_Fin.py…]()
+    episode_rewards = []
 
     count = 0
 
